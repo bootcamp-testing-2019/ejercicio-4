@@ -1,0 +1,18 @@
+{
+    "name": "ejercicio-4",
+    "version": "0.0.1",
+    "description": "A package to handle units and measures.",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bootcamp-testing-2019/ejercicio-4.git"
+    },
+    "author": "Martín Rubí",
+    "license": "ISC",
+    "homepage": "https://github.com/bootcamp-testing-2019/ejercicio-4#readme",
+    "devDependencies": {
+        "jest": "^24.8"
+    },
+    "scripts": {
+        "test": "npx jest"
+    }
+}
