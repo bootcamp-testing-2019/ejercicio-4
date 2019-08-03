@@ -1,6 +1,6 @@
-const StorageMeasurement = require('./StorageMeasurement')
+const Units = require('./Units')
 
-class Kilobytes extends StorageMeasurement {
+class Kilobytes extends Units {
     /// Constants
 
     /*
@@ -12,10 +12,9 @@ class Kilobytes extends StorageMeasurement {
 
     /// Displaying
 
-    toString() {
-        return `kb(${this.amount})`
+    static toString() {
+        return 'kb'
     }
 }
-
 
 module.exports = Kilobytes

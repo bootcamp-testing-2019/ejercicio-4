@@ -1,6 +1,6 @@
-const StorageMeasurement = require('./StorageMeasurement')
+const Units = require('./Units')
 
-class Megabytes extends StorageMeasurement {
+class Megabytes extends Units {
     /// Constants
 
     /*
@@ -12,8 +12,8 @@ class Megabytes extends StorageMeasurement {
 
     /// Displaying
 
-    toString() {
-        return `mb(${this.amount})`
+    static toString() {
+        return 'mb'
     }
 }
 

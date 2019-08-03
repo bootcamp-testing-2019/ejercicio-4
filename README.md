@@ -22,13 +22,20 @@ Notar que no hay ningún test de unidad, únicamente tests usando el DSL que est
 
 Notar también que la cobertura de tests es de casi un 100% y que el único método que no se ejercita en los tests es un método de implementación.
 
-![Code coverage](./docs/code-coverage.png)
+![Code coverage](./docs/code-coverage-1.png)
 
 Para generar el reporte de code coverage hacer
 
 ```
 npx jest --coverage
 ```
+
+## Segunda iteración
+
+En la segunda iteración, luego de tener definida la interfaz pública del DSL, cambiamos completamente la implementación apoyándonos en el hecho de tener una cobertura de tests funcionales de casi el 100% y de no tener ningún test de unidad.
+
+![Code coverage](./docs/code-coverage-2.png)
+
 
 ## Ejercicio completado
 

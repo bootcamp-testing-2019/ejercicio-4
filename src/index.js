@@ -4,19 +4,19 @@ const Megabytes = require('./storage/Megabytes')
 const Gigabytes = require('./storage/Gigabytes')
 
 function bytes(amount) {
-    return new Bytes(amount)
+    return Bytes.amount(amount)
 }
 
 function kb(amount) {
-    return new Kilobytes(amount)
+    return Kilobytes.amount(amount)
 }
 
 function mb(amount) {
-    return new Megabytes(amount)
+    return Megabytes.amount(amount)
 }
 
 function gb(amount) {
-    return new Gigabytes(amount)
+    return Gigabytes.amount(amount)
 }
 
 module.exports = {bytes, kb, mb, gb}
