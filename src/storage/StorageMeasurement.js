@@ -105,7 +105,10 @@ class StorageMeasurement {
      * in the same units as this units.
      */
     dividedBy(scalar) {
-        this.validateScalarCompatibility(scalar)
+        this.validateScalarCompatibility(
+            scalar,
+            `Can not divide a StorageMeasurement by ${scalar}.`
+        )
 
         return this.multipliedBy(1.0 / scalar)
     }

@@ -35,11 +35,9 @@ describe('When multiplying a scaler', () => {
 })
 
 describe('It raises an error when multiplying by a non scalar', () => {
-
     test('from bytes', () => {
         expect( () => {
             bytes(1).multipliedBy(bytes(1))
         }).toThrow('Can not multiply a StorageMeasurement by bytes(1).')
     })
-
 })
