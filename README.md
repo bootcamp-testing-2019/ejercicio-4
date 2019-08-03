@@ -32,10 +32,13 @@ npx jest --coverage
 
 ## Segunda iteración
 
-En la segunda iteración, luego de tener definida la interfaz pública del DSL, cambiamos completamente la implementación apoyándonos en el hecho de tener una cobertura de tests funcionales de casi el 100% y de no tener ningún test de unidad.
+En la segunda iteración, luego de tener definida la interfaz pública del DSL, cambiamos completamente la implementación apoyándonos en el hecho de tener una cobertura de tests funcionales de casi el 100% y de no haber escrito ningún test de unidad.
+
+Notar del [commit](https://github.com/bootcamp-testing-2019/ejercicio-4/commit/45a46c0a8c21d81650eec27b1ffcac33f7accea9) de los cambios que prácticamente modificamos o reescribimos el 100% de las líneas de código de la implementación del DSL sin haber tocado ni una sola línea de código de ninguno de los tests, mantiendo un test coverage aproximadamente igual al anterior.
 
 ![Code coverage](./docs/code-coverage-2.png)
 
+Al decidir hacer únicamente tests funcionales de las interfaces públicas pusimos el esfuerzo en alcanzar desde el comienzo una interfaz estable en vez de la implementación estática a la que nos hubieran atado los tests de unidad de haberlos escrito.
 
 ## Ejercicio completado
 
