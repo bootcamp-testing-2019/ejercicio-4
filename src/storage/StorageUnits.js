@@ -1,12 +1,14 @@
-let StorageMeasurement
+const Units = require('../Units')
 
-class Units {
+let Measurement
+
+class StorageUnits extends Units {
     static amount(amount) {
-        if(StorageMeasurement === undefined) {
-            StorageMeasurement = require('./StorageMeasurement')
+        if(Measurement === undefined) {
+            Measurement = require('./StorageMeasurement')
         }
 
-        return new StorageMeasurement(amount, this)
+        return new Measurement(amount, this)
     }
 
     /// Constants
@@ -25,4 +27,4 @@ class Units {
     }
 }
 
-module.exports = Units
+module.exports = StorageUnits

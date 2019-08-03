@@ -1,32 +1,11 @@
+const Measurement = require('../Measurement')
+
 const Bytes = require('./Bytes')
 const Kilobytes = require('./Kilobytes')
 const Megabytes = require('./Megabytes')
 const Gigabytes = require('./Gigabytes')
 
-class StorageMeasurement {
-    /// Initializing
-
-    constructor(amount, units) {
-        this.amount = amount
-        this.units = units
-    }
-
-    /// Accessing
-
-    /*
-     * Returns the units of this Measurement.
-     */
-    getUnits() {
-        return this.units
-    }
-
-    /*
-     * Returns the amount of units of this Measurement.
-     */
-    getAmount() {
-        return this.amount
-    }
-
+class StorageMeasurement extends Measurement {
     /// Asking
 
     /*
@@ -36,77 +15,14 @@ class StorageMeasurement {
         return true
     }
 
-    /// Arithmetics
-
-    /*
-     * Returns the sum of this measurement plus anotherMeasurement expressed in the same units as
-     * this units.
-     */
-    plus(anotherMeasurement) {
-        this.validateStorageMeasurement(
-            anotherMeasurement,
-            `Can not add ${anotherMeasurement} to a StorageMeasurement.`
-        )
-
-        const bytes = this.toBytes().getAmount() + anotherMeasurement.toBytes().getAmount()
-
-        const amount = bytes / this.getUnits().getFactor()
-
-        const Units = this.getUnits()
-
-        return Units.amount(amount)
-    }
-
-    /*
-     * Returns the rest of this measurement mimnus anotherMeasurement expressed in the same units as
-     * this units.
-     */
-    minus(anotherMeasurement) {
-        this.validateStorageMeasurement(
-            anotherMeasurement,
-            `Can not substract ${anotherMeasurement} to a StorageMeasurement.`
-        )
-
-        const bytes = this.toBytes().getAmount() - anotherMeasurement.toBytes().getAmount()
-
-        const amount = bytes / this.getUnits().getFactor()
-
-        const Units = this.getUnits()
-
-        return Units.amount(amount)
-    }
-
-    /*
-     * Returns the multiplication of this measurement by a scalar expressed in the same units as
-     * this units.
-     */
-    multipliedBy(scalar) {
-        this.validateScalar(
-            scalar,
-            `Can not multiply a StorageMeasurement by ${scalar}.`
-        )
-
-        const amount = this.amount * scalar
-
-        const Units = this.getUnits()
-
-        return Units.amount(amount)
-    }
-
-    /*
-     * Returns the division of this measurement by a scalar expressed in the same units as
-     * this units.
-     */
-    dividedBy(scalar) {
-        this.validateScalar(
-            scalar,
-            `Can not divide a StorageMeasurement by ${scalar}.`
-        )
-
-        return this.multipliedBy(1.0 / scalar)
-    }
-
     /// Converting
+
+    /*
+     * Returns this Measurement expressed as Bytes.
+     */
+    toBaseUnits() {
+        return this.toBytes()
+    }
 
     /*
      * Returns this Measurement expressed as Bytes.
@@ -150,14 +66,6 @@ class StorageMeasurement {
         return Gigabytes.amount(mb)
     }
 
-    /// Displaying
-
-    toString() {
-        const unitsString = this.units.toString()
-
-        return `${unitsString}(${this.amount})`
-    }
-
     /// Validating
 
     /*
@@ -166,18 +74,6 @@ class StorageMeasurement {
      */
     validateStorageMeasurement(object, errorMessage) {
         if(object.isStorageMeasurement !== undefined && object.isStorageMeasurement()) {
-            return
-        }
-
-        throw errorMessage
-    }
-
-    /*
-     * Validates that the given object is a scalar number.
-     * Raises an errorMessage if not.
-     */
-    validateScalar(object, errorMessage) {
-        if(typeof object === 'number') {
             return
         }
 

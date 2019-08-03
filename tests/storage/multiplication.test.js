@@ -4,7 +4,7 @@ const Kilobytes = require('../../src/storage/Kilobytes')
 const Megabytes = require('../../src/storage/Megabytes')
 const Gigabytes = require('../../src/storage/Gigabytes')
 
-describe('When multiplying a scaler', () => {
+describe('When multiplying a scalar', () => {
     test('from bytes', () => {
         const result = bytes(1).multipliedBy(2)
 
@@ -38,6 +38,24 @@ describe('It raises an error when multiplying by a non scalar', () => {
     test('from bytes', () => {
         expect( () => {
             bytes(1).multipliedBy(bytes(1))
+        }).toThrow('Can not multiply a StorageMeasurement by bytes(1).')
+    })
+
+    test('from kilobytes', () => {
+        expect( () => {
+            kb(1).multipliedBy(bytes(1))
+        }).toThrow('Can not multiply a StorageMeasurement by bytes(1).')
+    })
+
+    test('from megabytes', () => {
+        expect( () => {
+            mb(1).multipliedBy(bytes(1))
+        }).toThrow('Can not multiply a StorageMeasurement by bytes(1).')
+    })
+
+    test('from gigabytes', () => {
+        expect( () => {
+            gb(1).multipliedBy(bytes(1))
         }).toThrow('Can not multiply a StorageMeasurement by bytes(1).')
     })
 })

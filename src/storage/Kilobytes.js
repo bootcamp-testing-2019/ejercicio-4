@@ -1,6 +1,6 @@
-const Units = require('./Units')
+const StorageUnits = require('./StorageUnits')
 
-class Kilobytes extends Units {
+class Kilobytes extends StorageUnits {
     /// Constants
 
     /*
