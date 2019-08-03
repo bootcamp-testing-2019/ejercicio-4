@@ -14,6 +14,22 @@ Continuar con
 * [Usando Docker](./docker.md)
 
 
+## Primera iteración
+
+En esta primera iteración, luego de experimentar de manera concreta con varias variantes de posibles DSLs, implementamos el protocolo completo del DSL usando TDD.
+
+Notar que no hay ningún test de unidad, únicamente tests usando el DSL que estamos diseñando.
+
+Notar también que la cobertura de tests es de casi un 100% y que el único método que no se ejercita en los tests es un método de implementación.
+
+![Code coverage](./docs/code-coverage.png)
+
+Para generar el reporte de code coverage hacer
+
+```
+npx jest --coverage
+```
+
 ## Ejercicio completado
 
 Para ver el ejercicio completado hacer

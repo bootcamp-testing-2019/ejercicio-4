@@ -1,29 +1,22 @@
-const convertionFactor = {
-    bytes: 1.0,
-    kb: 1024,
-    mb: 1024 * 1024,
+const Bytes = require('./storage/Bytes')
+const Kilobytes = require('./storage/Kilobytes')
+const Megabytes = require('./storage/Megabytes')
+const Gigabytes = require('./storage/Gigabytes')
+
+function bytes(amount) {
+    return new Bytes(amount)
 }
 
-function expressedIn(amount, units, resultUnits) {
-    const bytesAmount = amount * convertionFactor[units]
-
-    return bytesAmount / convertionFactor[resultUnits]
+function kb(amount) {
+    return new Kilobytes(amount)
 }
 
-function add(amount, units, amount2, units2, resultUnits) {
-    const bytes = expressedIn(amount, units, 'bytes')
-
-    const bytes2 = expressedIn(amount2, units2, 'bytes')
-
-    return expressedIn(bytes + bytes2, 'bytes', resultUnits)
+function mb(amount) {
+    return new Megabytes(amount)
 }
 
-function substract(amount, units, amount2, units2, resultUnits) {
-    const bytes = expressedIn(amount, units, 'bytes')
-
-    const bytes2 = expressedIn(amount2, units2, 'bytes')
-
-    return expressedIn(bytes - bytes2, 'bytes', resultUnits)
+function gb(amount) {
+    return new Gigabytes(amount)
 }
 
-module.exports = {add, substract}
+module.exports = {bytes, kb, mb, gb}
